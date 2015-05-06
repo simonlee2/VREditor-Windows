@@ -26,7 +26,7 @@ using System.Collections.Generic;
 /// Controls the player's movement in virtual reality.
 /// </summary>
 [RequireComponent(typeof(CharacterController))]
-public class OVRPlayerController : MonoBehaviour
+public class EditorPlayerController : MonoBehaviour
 {
 	/// <summary>
 	/// The rate acceleration during movement.
@@ -79,7 +79,7 @@ public class OVRPlayerController : MonoBehaviour
 	private OVRPose? InitialPose;
 	
 	/// <summary>
-	/// If true, each OVRPlayerController will use the player's physical height.
+	/// If true, each EditorPlayerController will use the player's physical height.
 	/// </summary>
 	public bool useProfileHeight = true;
 
@@ -99,7 +99,7 @@ public class OVRPlayerController : MonoBehaviour
 		Controller = gameObject.GetComponent<CharacterController>();
 
 		if(Controller == null)
-			Debug.LogWarning("OVRPlayerController: No CharacterController attached.");
+			Debug.LogWarning("EditorPlayerController: No CharacterController attached.");
 
 		// We use OVRCameraRig to set rotations to cameras,
 		// and to be influenced by rotation
@@ -107,9 +107,9 @@ public class OVRPlayerController : MonoBehaviour
 		CameraControllers = gameObject.GetComponentsInChildren<OVRCameraRig>();
 
 		if(CameraControllers.Length == 0)
-			Debug.LogWarning("OVRPlayerController: No OVRCameraRig attached.");
+			Debug.LogWarning("EditorPlayerController: No OVRCameraRig attached.");
 		else if (CameraControllers.Length > 1)
-			Debug.LogWarning("OVRPlayerController: More then 1 OVRCameraRig attached.");
+			Debug.LogWarning("EditorPlayerController: More then 1 OVRCameraRig attached.");
 		else
 			CameraController = CameraControllers[0];
 
@@ -127,6 +127,7 @@ public class OVRPlayerController : MonoBehaviour
 			Debug.Log("shift and space pressed");
 			Debug.Log(this.HaltUpdateMovement);
 		}
+		Debug.Log ("ha");
 
 		if (useProfileHeight)
 		{
