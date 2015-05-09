@@ -127,7 +127,6 @@ public class EditorPlayerController : MonoBehaviour
 			Debug.Log("shift and space pressed");
 			Debug.Log(this.HaltUpdateMovement);
 		}
-		Debug.Log ("ha");
 
 		if (useProfileHeight)
 		{
