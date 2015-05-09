@@ -323,7 +323,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 699325567}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -510,6 +510,7 @@ GameObject:
   - 4: {fileID: 906864897}
   - 20: {fileID: 906864899}
   - 114: {fileID: 906864898}
+  - 45: {fileID: 906864900}
   m_Layer: 0
   m_Name: LeftEyeAnchor
   m_TagString: Untagged
@@ -569,7 +570,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294966783
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -577,6 +578,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!45 &906864900
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 906864896}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 2cb2c0a41d166194b97da75f23ddffcb, type: 2}
 --- !u!1 &980117274
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,6 +1008,7 @@ GameObject:
   - 4: {fileID: 1750839337}
   - 20: {fileID: 1750839339}
   - 114: {fileID: 1750839338}
+  - 45: {fileID: 1750839340}
   m_Layer: 0
   m_Name: RightEyeAnchor
   m_TagString: Untagged
@@ -1058,7 +1068,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4294967039
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1066,6 +1076,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
+--- !u!45 &1750839340
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750839336}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 499379da27356bb4ca785d35b1d6cf9d, type: 2}
 --- !u!1 &2094824454
 GameObject:
   m_ObjectHideFlags: 0
