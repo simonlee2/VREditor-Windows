@@ -3,6 +3,8 @@ using System.Collections;
 
 public class EditPaneManager : MonoBehaviour {
 	public GameObject lookCamera;
+	GameObject currentObject;
+	bool editMode = false;
 	// Use this for initialization
 	void Start () {
 
@@ -22,12 +24,24 @@ public class EditPaneManager : MonoBehaviour {
 			Instantiate(Resources.Load("tile"), pos, new Quaternion());
 		}
 
+		if (Input.GetKey (KeyCode.I)) {
+			editMode = true;
+			Debug.Log(editMode);
+		}
+
+		if (Input.GetKey(KeyCode.Escape)) {
+			editMode = false;
+			Debug.Log(editMode);
+		}
+
 		if (Input.GetKey (KeyCode.LeftAlt) && Input.GetKey(KeyCode.B)) {
 			// drag windows around
 			// find distance btwn look and window
 			GameObject eventSystem = GameObject.Find("EventSystem");
 			BasicLookInputModule blim = eventSystem.GetComponent<BasicLookInputModule>();
-			GameObject currentObject = blim.currentRaycastObject;
+			if (currentObject == null) { 
+				currentObject = blim.currentRaycastObject;
+			}
 			Transform rootTransform = currentObject.transform.root;
 			float distance = Vector3.Distance(rootTransform.position, lookCamera.transform.position);
 			if (Input.GetKey(KeyCode.J) && distance > 1.5) {
@@ -39,6 +53,10 @@ public class EditPaneManager : MonoBehaviour {
 
 			rootTransform.position = (lookCamera.transform.position + lookCamera.transform.forward * distance);
 			rootTransform.rotation = lookCamera.transform.rotation;
+		}
+
+		if (Input.GetKeyUp (KeyCode.B)) {
+			currentObject = null;
 		}
 	}
 

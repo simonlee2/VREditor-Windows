@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 public class LaunchBar : MonoBehaviour {
 	public InputField launchBarField;
@@ -10,11 +11,14 @@ public class LaunchBar : MonoBehaviour {
 	void Start () {
 		launchBarIsActive = false;
 		launchBarObject.SetActive(false);
+		InputField.SubmitEvent submitEvent = new InputField.SubmitEvent ();
+		submitEvent.AddListener (SubmitSearch);
+		launchBarField.onEndEdit = submitEvent;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (comboPressed(KeyCode.Z, KeyCode.X)) {
+		if (comboPressed(KeyCode.LeftAlt, KeyCode.V)) {
 			if (launchBarIsActive) {
 				launchBarObject.SetActive(false);
 				launchBarField.DeactivateInputField();
@@ -33,5 +37,18 @@ public class LaunchBar : MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	private void SubmitSearch(string search) {
+		if (Regex.IsMatch(search, @"^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$")) {
+			Debug.Log ("Web URl: " + search);
+			loadWebContent(search);
+		}
+		string text = System.IO.File.ReadAllText(Application.dataPath + "\\" + search);
+		Debug.Log (text);
+	}
+
+	private void loadWebContent(string url) {
+		Debug.Log ("Load web content with url :" + url);
 	}
 }
