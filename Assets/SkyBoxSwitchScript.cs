@@ -8,7 +8,14 @@ public class SkyBoxSwitchScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		skyboxes.Add ("sunrise");
-		skyboxes.Add ("room");
+		skyboxes.Add ("sunset");
+		skyboxes.Add ("af");
+		skyboxes.Add ("ek");
+		skyboxes.Add ("fang");
+		skyboxes.Add ("ir");
+		skyboxes.Add ("ps");
+		skyboxes.Add ("tf");
+		skyboxes.Add ("tree");
 	}
 	
 	// Update is called once per frame
@@ -20,9 +27,9 @@ public class SkyBoxSwitchScript : MonoBehaviour {
 			//Skybox skybox = playerController.transform.FindChild("LeftEyeAnchor").GetComponent<Skybox>() as Skybox;
 			//skybox.material = Resources.Load ("/Assets/Images/test_skybox_l", typeof(Material)) as Material;
 			Skybox skybox_left = GameObject.FindGameObjectWithTag("LeftEye").GetComponent<Skybox>();
-			skybox_left.material = Resources.Load (skyboxes[currentIndex]+ "_left") as Material;
+			skybox_left.material = Resources.Load (skyboxes[currentIndex]+ "_right") as Material; // we named all skyboxes the opposite way. Temporary fix.
 			Skybox skybox_right = GameObject.FindGameObjectWithTag("RightEye").GetComponent<Skybox>();
-			skybox_right.material = Resources.Load (skyboxes[currentIndex]+ "_right") as Material;
+			skybox_right.material = Resources.Load (skyboxes[currentIndex]+ "_left") as Material;
 			currentIndex = (currentIndex + 1) % skyboxes.Count;
 		}
 		//RenderSettings.skybox.ma = test_skybox_left;
