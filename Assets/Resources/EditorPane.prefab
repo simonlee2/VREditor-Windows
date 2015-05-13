@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ignoreReversedGraphics: 1
-  blockingObjects: 0
+  blockingObjects: 3
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295

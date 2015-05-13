@@ -173,7 +173,7 @@ public class OVRMainMenu : MonoBehaviour
 	/// <summary>
 	/// Crosshair rendered onto 3D plane.
 	/// </summary>
-	public UnityEngine.Texture  CrosshairImage 			= null;
+	public UnityEngine.Texture  CrosshairImage 			= Resources.Load("cursor.png") as Texture;
 	private OVRCrosshair Crosshair        	= new OVRCrosshair();
 
     // Resolution Eye Texture
