@@ -58,6 +58,9 @@ RiftSketch: Live coding Javascript and Three.js (WebGL/WebVR)</p>
 <h4>
 <a id="user-interface" class="anchor" href="#user-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a>User interface:</h4>
 
+<p>We encounter tech problems with drawing cross-hair to indicate which object the user is looking at.
+However, having a persistent cross-hair would mess up with existing background environment. As the background environments  are Skyboxes in which an object could appear near to us and even nearer than the cross-hair. In this case, we would see cross-hair behind the background or having a double-image cross-hair. To fix this, we edit the RayCast script to disable the rendering of the cross-hair when there it is hitting no objects,</p>
+
 <h3>
 <a id="what-works-well" class="anchor" href="#what-works-well" aria-hidden="true"><span class="octicon octicon-link"></span></a>What Works Well</h3>
 
