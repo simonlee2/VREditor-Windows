@@ -44,7 +44,7 @@ public class BasicLookInputModule : BaseInputModule {
 		// use built-in enter/exit highlight handler
 		currentRaycastObject = lookData.pointerCurrentRaycast.gameObject;
 		HandlePointerExitAndEnter(lookData,lookData.pointerCurrentRaycast.gameObject);
-		if (Input.GetButtonDown (submitButtonName) || Input.GetKeyDown(KeyCode.I)) {
+		if (Input.GetButtonDown (submitButtonName)) {
 			eventSystem.SetSelectedGameObject(null);
 			if (lookData.pointerCurrentRaycast.gameObject != null) {
 				GameObject go = lookData.pointerCurrentRaycast.gameObject;

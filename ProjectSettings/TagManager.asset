@@ -6,6 +6,8 @@ TagManager:
   - Terrain
   - LeftEye
   - RightEye
+  - web
+  - editor
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

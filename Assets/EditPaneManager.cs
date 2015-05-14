@@ -19,6 +19,24 @@ public class EditPaneManager : MonoBehaviour {
 			pane.GetComponentInChildren<Canvas>().worldCamera = lookCamera.GetComponent<Camera>();
 		}
 
+		if (comboPressed (KeyCode.LeftAlt, KeyCode.X)) {
+			RaycastHit hit;
+			if (Physics.Raycast (new Ray(lookCamera.transform.position, lookCamera.transform.forward * 3), out hit)) {
+				if (currentObject == null) {
+					currentObject = hit.transform.gameObject;
+				}
+			} else {
+				GameObject eventSystem = GameObject.Find("EventSystem");
+				BasicLookInputModule blim = eventSystem.GetComponent<BasicLookInputModule>();
+				if (currentObject == null) { 
+					currentObject = blim.currentRaycastObject;
+				}
+			}
+
+			Destroy(currentObject.transform.root.gameObject);
+			currentObject = null;
+		}
+
 		if (comboPressed (KeyCode.K, KeyCode.L)) {
 			Vector3 pos = lookCamera.transform.position + lookCamera.transform.forward * 3;
 			Instantiate(Resources.Load("tile"), pos, new Quaternion());
@@ -37,22 +55,48 @@ public class EditPaneManager : MonoBehaviour {
 		if (Input.GetKey (KeyCode.LeftAlt) && Input.GetKey(KeyCode.B)) {
 			// drag windows around
 			// find distance btwn look and window
-			GameObject eventSystem = GameObject.Find("EventSystem");
-			BasicLookInputModule blim = eventSystem.GetComponent<BasicLookInputModule>();
-			if (currentObject == null) { 
-				currentObject = blim.currentRaycastObject;
+
+			RaycastHit hit;
+			if (Physics.Raycast (new Ray(lookCamera.transform.position, lookCamera.transform.forward * 3), out hit)) {
+				if (currentObject == null) {
+					currentObject = hit.transform.gameObject;
+				}
+			} else {
+				GameObject eventSystem = GameObject.Find("EventSystem");
+				BasicLookInputModule blim = eventSystem.GetComponent<BasicLookInputModule>();
+				if (currentObject == null) { 
+					currentObject = blim.currentRaycastObject;
+				}
 			}
+
 			Transform rootTransform = currentObject.transform.root;
 			float distance = Vector3.Distance(rootTransform.position, lookCamera.transform.position);
+			float xScale = rootTransform.localScale.x;
+			float yScale = rootTransform.localScale.y;
 			if (Input.GetKey(KeyCode.J) && distance > 1.5) {
 				distance -= 0.5f;
 			}
 			if (Input.GetKey(KeyCode.K)) {
 				distance += 0.5f;
 			}
+			if (Input.GetKey(KeyCode.M)) {
+				xScale += 0.0005f;
+			}
+			if (Input.GetKey(KeyCode.Comma)) {
+				xScale -= 0.0005f;
+			}
 
+			if (Input.GetKey(KeyCode.U)) {
+				yScale += 0.0005f;
+			}
+			if (Input.GetKey(KeyCode.I)) {
+				yScale -= 0.0005f;
+			}
+
+			
 			rootTransform.position = (lookCamera.transform.position + lookCamera.transform.forward * distance);
 			rootTransform.rotation = lookCamera.transform.rotation;
+			rootTransform.localScale = new Vector3(xScale, yScale, rootTransform.localScale.z);
 		}
 
 		if (Input.GetKeyUp (KeyCode.B)) {
