@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>Vreditor-windows by simonlee2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Vreditor-windows</h1>
-      <h2 class="project-tagline"></h2>
-      <a href="https://github.com/simonlee2/VREditor-Windows" class="btn">View on GitHub</a>
-      <a href="https://github.com/simonlee2/VREditor-Windows/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/simonlee2/VREditor-Windows/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <section class="main-content">
-      <h3>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Vreditor-windows by simonlee2</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Vreditor-windows</h1>
+        <h2></h2>
+        <a href="https://github.com/simonlee2/VREditor-Windows" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h3>
 <a id="project-idea" class="anchor" href="#project-idea" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Project Idea</strong>
 </h3>
 
@@ -121,25 +130,6 @@ Next import future work of the text editor would be able to open multiple types 
 <p>Currently the search bar does not automatically guesses what you're searching for as you type into the search box. Depending on the search query, user's might prefer showing suggestions for existing matching file names, suggestions from search history, spelling corrections, sponsored links, or top websites matching the string etc.</p>
 
 <h3>
-<a id="why-its-a-comfortable-experience" class="anchor" href="#why-its-a-comfortable-experience" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why it's a comfortable experience</h3>
-
-<p>We try to make this to be as comfortable as possible by follow most of the the Oculus Best Practices</p>
-
-<h4>
-<a id="minimizing-latency" class="anchor" href="#minimizing-latency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimizing Latency</h4>
-
-<p>Lag and dropped frames produce judder which is discomforting in VR.
-We optimized our code to run at a frame rate equal to or greater than the Rift display refresh rate, v-synced and unbuffered.
-We have an average frame rate of 62 which is good enough to prevent dropped frames and judder.</p>
-
-<h4>
-<a id="cameras" class="anchor" href="#cameras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cameras</h4>
-
-<p>Zooming in or out with the camera can induce or exacerbate simulator sickness, particularly if they cause head and camera movements to fall out of 1 to 1 correspondence with each other. We don't have that problem because we have the user fixed at the same location while moving the text screen instead. </p>
-
-<p>Allow the user to edit in the environment for potentially extended time. We intend to follow most of the Oculus Best Practices.</p>
-
-<h3>
 <a id="how-we-use-the-course-concepts" class="anchor" href="#how-we-use-the-course-concepts" aria-hidden="true"><span class="octicon octicon-link"></span></a>How we use the course concepts</h3>
 
 <h4>
@@ -158,25 +148,69 @@ We have an average frame rate of 62 which is good enough to prevent dropped fram
 <p>We have text editors modeled as 3D GUI windows and wrote scripts to control its linear transformations. Some of the transformations include resizing, positioning near/further and move left/right by using player as the center of the rotation sphere.</p>
 
 <h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a id="why-its-a-comfortable-experience" class="anchor" href="#why-its-a-comfortable-experience" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Why it's a comfortable experience</strong>
+</h3>
+
+<p>We try to make this to be as comfortable as possible by follow most of the the Oculus Best Practices:</p>
+
+<h4>
+<a id="minimizing-latency" class="anchor" href="#minimizing-latency" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimizing Latency</h4>
+
+<p>Lag and dropped frames produce judder which is discomforting in VR.
+We optimized our code to run at a frame rate equal to or greater than the Rift display refresh rate, v-synced and unbuffered.
+We have an average frame rate of 62 which is good enough to prevent dropped frames and judder.</p>
+
+<h4>
+<a id="cameras" class="anchor" href="#cameras" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cameras</h4>
+
+<p>Zooming in or out with the camera can induce or exacerbate simulator sickness, particularly if they cause head and camera movements to fall out of 1 to 1 correspondence with each other. We don't have that problem because we have the user fixed at the same location while moving the text screen instead. </p>
+
+<p>Avoid using Euler angles whenever possible; quaternions are preferred. We use quaternions throughout our project.</p>
+
+<p>For third person content, be aware that the guidelines for accelerations and movements still apply to the camera regardless of what the avatar is. We disabled the movement of the player to avoid acceleration sickness from happening. In the meantime, we allow the users to always have the freedom to look all around the environment.</p>
+
+<p>Allow the user to edit in the environment for potentially extended time. We intend to follow most of the Oculus Best Practices.</p>
+
+<h4>
+<a id="user-interface-2" class="anchor" href="#user-interface-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>User Interface</h4>
+
+<p>We don't require the user to swivel their eyes in their sockets to see the UI. We have the option for user to bring over the text editor screen or push away the text editor in case that they could not see the text on UI.</p>
+
+<p>Draw any crosshair, reticle, or cursor at the same depth as the object it is targeting; otherwise, it can appear as a doubled image when it is not at the plane of depth on which the eyes are converged. We have a crosshair displayed to help the player realize which window he/she is going to activate.</p>
+
+<p>Strive to integrate your interface elements as intuitive and immersive parts of the 3D world. All our editor windows and search bar are 3D objects that can be size and location customizable in the 3D world.</p>
+
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Authors and Contributors</strong>
+</h3>
 
 <p>Simon Lee    <a href="mailto:slee168@illinois.edu">slee168@illinois.edu</a>
 Chaoran Wang <a href="mailto:wang374@illinois.edu">wang374@illinois.edu</a></p>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Support or Contact</strong>
+</h3>
 
 <p>Having trouble with Pages? Check out the documentation at <a href="https://help.github.com/pages">https://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+        </section>
 
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/simonlee2/VREditor-Windows">Vreditor-windows</a> is maintained by <a href="https://github.com/simonlee2">simonlee2</a>.</span>
+        <aside id="sidebar">
+          <a href="https://github.com/simonlee2/VREditor-Windows/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/simonlee2/VREditor-Windows/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
+          <p class="repo-owner"><a href="https://github.com/simonlee2/VREditor-Windows"></a> is maintained by <a href="https://github.com/simonlee2">simonlee2</a>.</p>
 
-    </section>
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
 
   
   </body>
 </html>
-
