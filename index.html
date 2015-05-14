@@ -1,40 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Vreditor-windows by simonlee2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Vreditor-windows by simonlee2</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Vreditor-windows</h1>
-        <h2></h2>
-        <a href="https://github.com/simonlee2/VREditor-Windows" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <section class="page-header">
+      <h1 class="project-name">Vreditor-windows</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/simonlee2/VREditor-Windows" class="btn">View on GitHub</a>
+      <a href="https://github.com/simonlee2/VREditor-Windows/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/simonlee2/VREditor-Windows/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a id="project-idea" class="anchor" href="#project-idea" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project Idea</h3>
+    <section class="main-content">
+      <h3>
+<a id="project-idea" class="anchor" href="#project-idea" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Project Idea</strong>
+</h3>
 
 <p>The project will focus on exploring the possibility of editing text in VR. That said, we will use Unity as our engine. On top of unity we will build the experience around three major components:</p>
 
 <h3>
-<a id="novelty" class="anchor" href="#novelty" aria-hidden="true"><span class="octicon octicon-link"></span></a>Novelty</h3>
+<a id="novelty" class="anchor" href="#novelty" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Novelty</strong>
+</h3>
 
 <p>There are a lot of VR demos out there, but we haven’t seen many that explores the experience of text editing in VR. Many programmers prefer to work with two monitors and we’ve seen a matrix of 9 monitors at an investment banker’s desk. Working in VR makes use of the free, unlimited space. During our research we came across related projects as follows:</p>
 
@@ -45,17 +38,20 @@ RiftSketch: Live coding Javascript and Three.js (WebGL/WebVR)</p>
 <p>But none of the existing projects have been able to open up infinite numbers of text editors, or be able to switch the surrounding environment for the VR workstation. </p>
 
 <h3>
-<a id="technical-challenges" class="anchor" href="#technical-challenges" aria-hidden="true"><span class="octicon octicon-link"></span></a>Technical Challenges</h3>
+<a id="technical-challenges" class="anchor" href="#technical-challenges" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Technical Challenges</strong>
+</h3>
 
 <h4>
 <a id="text-editor" class="anchor" href="#text-editor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Text editor:</h4>
 
 <p>How do we take the basic functionalities in an editor - opening/saving/closing a file, multiple windows, consoles, switching between windows - and make it feel natural and superior in VR</p>
 
+<p>We encounter technical problems in selecting </p>
+
 <h4>
 <a id="environment" class="anchor" href="#environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Environment:</h4>
 
-<p>One of the challenge we encounter is how to switch environment for the player.</p>
+<p>One of the challenge we encounter is how to switch environment for the player. We solved this by creating a list of environment names, and having a script running at start of the project, listening for key press to trigger the function to load next environment in list. When the index of the environment reaches the end of the list, it wraps around to the head of the list.</p>
 
 <p>Another challenge is what type of environment we want, should it be a terrain with bunch of lightnings and objects or should it be just a sky box and where could we get those environments? To make rendering more efficient, we use a Skybox instead of terrain and objects for the representation of environment.Thus it is more efficient to load the background environment. We assume that a player will not walk around while reading and text editing.</p>
 
@@ -138,25 +134,16 @@ $ git checkout gh-pages
 <a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
 
 <p>Having trouble with Pages? Check out the documentation at <a href="https://help.github.com/pages">https://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/simonlee2/VREditor-Windows/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/simonlee2/VREditor-Windows/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/simonlee2/VREditor-Windows">Vreditor-windows</a> is maintained by <a href="https://github.com/simonlee2">simonlee2</a>.</span>
 
-          <p class="repo-owner"><a href="https://github.com/simonlee2/VREditor-Windows"></a> is maintained by <a href="https://github.com/simonlee2">simonlee2</a>.</p>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+    </section>
 
   
   </body>
 </html>
+
